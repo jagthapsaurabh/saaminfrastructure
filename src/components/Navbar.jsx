@@ -56,7 +56,17 @@ function Navbar() {
           <img
             src="/saam-logo.png"
             alt="SAAM Infrastructure"
-            className="h-10 w-auto max-w-[130px] object-contain sm:h-12 sm:max-w-[160px] lg:h-14 lg:max-w-[200px]"
+            width="138"
+            height="80"
+            loading="eager"
+            decoding="async"
+            style={{
+              height: '48px',
+              width: 'auto',
+              maxWidth: '150px',
+              objectFit: 'contain',
+              display: 'block'
+            }}
           />
         </Link>
 
