@@ -217,27 +217,382 @@ a {
 }
 
 /* =========================================================
+   MOBILE OPTIMIZATIONS — All devices (iOS, Android, Samsung, Nokia)
+   ========================================================= */
+
+/* iOS Safari fixes */
+@supports (-webkit-touch-callout: none) {
+  body {
+    min-height: -webkit-fill-available;
+  }
+  
+  html {
+    height: -webkit-fill-available;
+  }
+}
+
+/* Prevent iOS zoom on form inputs (requires 16px+ font size) */
+@media screen and (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="search"],
+  input[type="password"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Fix iOS date inputs */
+input[type="date"],
+input[type="datetime-local"],
+input[type="time"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* iOS safe area support (iPhone X and newer) */
+@supports (padding: max(0px)) {
+  .safe-top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+  
+  .safe-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+  
+  .safe-left {
+    padding-left: max(1rem, env(safe-area-inset-left));
+  }
+  
+  .safe-right {
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
+
+/* Minimum touch target size (44x44px for iOS, 48x48px for Android) */
+@media (max-width: 768px) {
+  button,
+  a,
+  [role="button"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Larger touch targets for Android */
+  @media (min-resolution: 2dppx) {
+    button,
+    a,
+    [role="button"] {
+      min-height: 48px;
+      min-width: 48px;
+    }
+  }
+}
+
+/* Fix mobile viewport height issues */
+@supports (-webkit-overflow-scrolling: touch) {
+  .h-screen-mobile {
+    height: 100vh;
+    height: -webkit-fill-available;
+  }
+}
+
+/* Prevent text size adjust on orientation change */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Smooth scrolling for mobile */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Fix iOS momentum scrolling */
+.overflow-scroll-mobile {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+
+/* Prevent content shift on mobile browsers */
+@supports (position: sticky) {
+  .sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+}
+
+/* =========================================================
    RESPONSIVE FONT SYSTEM — Consistent across all pages
    ========================================================= */
 
-/* Base font size stays same on all devices */
-@media (max-width: 639px) {
+/* Nokia C series and other small devices (240px - 320px) */
+@media (max-width: 320px) {
+  body {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  h1 {
+    font-size: 24px !important;
+  }
+  
+  h2 {
+    font-size: 20px !important;
+  }
+  
+  h3 {
+    font-size: 18px !important;
+  }
+  
+  p {
+    font-size: 14px;
+  }
+}
+
+/* Small mobile devices (320px - 375px) */
+@media (min-width: 321px) and (max-width: 375px) {
   body {
     font-size: 15px;
     line-height: 1.65;
   }
+  
+  h1 {
+    font-size: 26px !important;
+  }
+  
+  h2 {
+    font-size: 22px !important;
+  }
+  
+  h3 {
+    font-size: 19px !important;
+  }
 }
 
-@media (min-width: 640px) {
+/* Standard mobile devices (375px - 425px) */
+@media (min-width: 376px) and (max-width: 425px) {
   body {
     font-size: 15px;
     line-height: 1.65;
   }
+  
+  h1 {
+    font-size: 28px !important;
+  }
+  
+  h2 {
+    font-size: 23px !important;
+  }
+  
+  h3 {
+    font-size: 20px !important;
+  }
 }
 
-@media (min-width: 1024px) {
+/* Large mobile devices (425px - 768px) */
+@media (min-width: 426px) and (max-width: 768px) {
+  body {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  
+  h1 {
+    font-size: 30px !important;
+  }
+  
+  h2 {
+    font-size: 24px !important;
+  }
+  
+  h3 {
+    font-size: 21px !important;
+  }
+}
+
+/* Tablet devices (768px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  body {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  
+  h1 {
+    font-size: 32px !important;
+  }
+  
+  h2 {
+    font-size: 26px !important;
+  }
+  
+  h3 {
+    font-size: 22px !important;
+  }
+}
+
+/* Desktop devices (1024px+) */
+@media (min-width: 1025px) {
   body {
     font-size: 16px;
     line-height: 1.7;
   }
+  
+  h1 {
+    font-size: 36px !important;
+  }
+  
+  h2 {
+    font-size: 28px !important;
+  }
+  
+  h3 {
+    font-size: 24px !important;
+  }
+}
+
+/* =========================================================
+   DEVICE-SPECIFIC FIXES
+   ========================================================= */
+
+/* Samsung Galaxy devices */
+@media screen and (device-width: 360px) and (device-height: 740px),
+       screen and (device-width: 360px) and (device-height: 780px),
+       screen and (device-width: 412px) and (device-height: 915px) {
+  /* Samsung-specific adjustments */
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* iPhone SE (1st gen) */
+@media screen and (device-width: 320px) and (device-height: 568px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* iPhone 6/7/8/SE (2nd gen) */
+@media screen and (device-width: 375px) and (device-height: 667px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+/* iPhone 6/7/8 Plus */
+@media screen and (device-width: 414px) and (device-height: 736px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+/* iPhone X/XS/11 Pro/12 mini/13 mini */
+@media screen and (device-width: 375px) and (device-height: 812px) {
+  body {
+    font-size: 15px;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* iPhone XR/XS Max/11/11 Pro Max */
+@media screen and (device-width: 414px) and (device-height: 896px) {
+  body {
+    font-size: 15px;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* iPhone 12/12 Pro/13/13 Pro/14 */
+@media screen and (device-width: 390px) and (device-height: 844px) {
+  body {
+    font-size: 15px;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* iPhone 12 Pro Max/13 Pro Max/14 Plus */
+@media screen and (device-width: 428px) and (device-height: 926px) {
+  body {
+    font-size: 15px;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* iPad Mini/Air/Pro */
+@media screen and (device-width: 768px) and (device-height: 1024px),
+       screen and (device-width: 810px) and (device-height: 1080px),
+       screen and (device-width: 834px) and (device-height: 1194px),
+       screen and (device-width: 1024px) and (device-height: 1366px) {
+  body {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  
+  h1 {
+    font-size: 32px !important;
+  }
+  
+  h2 {
+    font-size: 26px !important;
+  }
+}
+
+/* =========================================================
+   LANDSCAPE MODE FIXES
+   ========================================================= */
+
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  /* Reduce padding in landscape mode on mobile */
+  .px-5 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .py-16 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  /* Adjust hero sections for landscape */
+  .min-h-screen {
+    min-height: auto;
+  }
+}
+
+/* =========================================================
+   HIGH DPI DISPLAYS
+   ========================================================= */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Retina and high-DPI displays */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* =========================================================
+   DARK MODE SUPPORT (Future Enhancement)
+   ========================================================= */
+
+@media (prefers-color-scheme: dark) {
+  /* Dark mode can be added here in the future */
+  /* For now, keep the light theme consistent */
 }

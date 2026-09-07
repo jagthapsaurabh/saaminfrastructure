@@ -41,6 +41,9 @@ function Navbar() {
           : "bg-white/95 shadow-sm backdrop-blur-lg"
         }
       `}
+      style={{
+        paddingTop: 'env(safe-area-inset-top)',
+      }}
     >
       {/* Main navbar */}
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:h-[68px] sm:px-6 lg:h-[72px] lg:px-8">
@@ -115,17 +118,22 @@ function Navbar() {
           />
 
           {/* Panel - slides down from navbar */}
-          <div className="relative z-50 mx-3 mt-2 max-h-[calc(100vh-80px)] overflow-y-auto rounded-2xl bg-white shadow-2xl">
+          <div 
+            className="relative z-50 mx-3 mt-2 max-h-[calc(100vh-80px)] overflow-y-auto rounded-2xl bg-white shadow-2xl"
+            style={{
+              WebkitOverflowScrolling: 'touch',
+            }}
+          >
             {/* Menu header */}
             <div className="flex items-center justify-between border-b border-[#E6E2D7] px-5 py-3">
               <span className="text-xs font-bold uppercase tracking-widest text-[#8B6914]">Navigation</span>
               <button
                 type="button"
                 onClick={closeMenu}
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-[#f8f6ef] text-[#374151]"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-[#f8f6ef] text-[#374151] active:scale-95 transition-transform"
                 aria-label="Close menu"
               >
-                <X size={16} />
+                <X size={20} />
               </button>
             </div>
 
@@ -138,20 +146,20 @@ function Navbar() {
                   end={item.path === "/"}
                   onClick={closeMenu}
                   className={({ isActive }) =>
-                    `flex items-center gap-3 rounded-xl px-4 py-3.5 text-base font-semibold transition-all duration-200
+                    `flex items-center gap-3 rounded-xl px-4 py-4 text-base font-semibold transition-all duration-200 active:scale-[0.98]
                     ${isActive
                       ? "bg-[#11130F] text-white"
                       : "text-[#374151] hover:bg-[#F8F5ED] hover:text-[#11130F]"
                     }`
                   }
                 >
-                  <span className={`flex h-7 w-7 items-center justify-center rounded-full text-xs font-bold ${
+                  <span className={`flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold ${
                     isActive ? "bg-white/20 text-white" : "bg-[#C9A227]/10 text-[#8B6914]"
                   }`}>
                     {String(idx + 1).padStart(2, "0")}
                   </span>
                   {item.name}
-                  <ArrowUpRight size={14} className={`ml-auto ${isActive ? "text-white" : "text-[#C9A227]/40"}`} />
+                  <ArrowUpRight size={16} className={`ml-auto ${isActive ? "text-white" : "text-[#C9A227]/40"}`} />
                 </NavLink>
               ))}
             </nav>
@@ -161,16 +169,16 @@ function Navbar() {
               <Link
                 to="/contact"
                 onClick={closeMenu}
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#11130F] px-6 py-3 text-sm font-bold text-white transition-all hover:bg-[#1B2A4A]"
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#11130F] px-6 py-4 text-sm font-bold text-white transition-all active:scale-[0.98] hover:bg-[#1B2A4A]"
               >
                 Get a Quote
-                <ArrowUpRight size={14} />
+                <ArrowUpRight size={16} />
               </Link>
               <a
                 href="tel:+919822735116"
-                className="flex w-full items-center justify-center gap-2 rounded-xl border border-[#11130F]/15 px-6 py-3 text-sm font-semibold text-[#11130F] transition-all hover:bg-[#11130F]/5"
+                className="flex w-full items-center justify-center gap-2 rounded-xl border border-[#11130F]/15 px-6 py-4 text-sm font-semibold text-[#11130F] transition-all active:scale-[0.98] hover:bg-[#11130F]/5"
               >
-                <Phone size={14} />
+                <Phone size={16} />
                 +91 98227 35116
               </a>
             </div>

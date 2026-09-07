@@ -152,7 +152,7 @@ function ContactPage() {
                           onFocus={() => setFocusedField(field.name)}
                           onBlur={() => setFocusedField(null)}
                           placeholder={field.placeholder}
-                          className={`w-full rounded-xl border bg-white px-4 py-3 text-sm text-[#11130F] placeholder-[#B0ADA2] transition-all duration-300 focus:outline-none ${
+                          className={`w-full rounded-xl border bg-white px-4 py-3 text-base text-[#11130F] placeholder-[#B0ADA2] transition-all duration-300 focus:outline-none sm:text-sm ${
                             errors[field.name]
                               ? "border-red-300 ring-2 ring-red-100"
                               : focusedField === field.name
@@ -185,7 +185,7 @@ function ContactPage() {
                       onFocus={() => setFocusedField('message')}
                       onBlur={() => setFocusedField(null)}
                       placeholder="Tell us about your project requirements..."
-                      className={`w-full resize-none rounded-xl border bg-white px-4 py-3 text-sm text-[#11130F] placeholder-[#B0ADA2] transition-all duration-300 focus:outline-none ${
+                      className={`w-full resize-none rounded-xl border bg-white px-4 py-3 text-base text-[#11130F] placeholder-[#B0ADA2] transition-all duration-300 focus:outline-none sm:text-sm ${
                         errors.message
                           ? "border-red-300 ring-2 ring-red-100"
                           : focusedField === 'message'
@@ -202,7 +202,7 @@ function ContactPage() {
                 </div>
 
                 {/* Submit */}
-                <button type="submit" disabled={isSubmitting} className="group inline-flex items-center gap-2 rounded-full bg-[#C9A227] px-6 py-3 text-sm font-bold text-[#11130F] shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#E0C35B] hover:shadow-xl disabled:opacity-60 disabled:hover:translate-y-0">
+                <button type="submit" disabled={isSubmitting} className="group inline-flex min-h-[48px] items-center gap-2 rounded-full bg-[#C9A227] px-6 py-3.5 text-sm font-bold text-[#11130F] shadow-lg transition-all duration-300 active:scale-[0.98] hover:-translate-y-0.5 hover:bg-[#E0C35B] hover:shadow-xl disabled:opacity-60 disabled:hover:translate-y-0">
                   {isSubmitting ? "Sending..." : "Send Message"}
                   {isSubmitting ? (
                     <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#11130F]/20 border-t-[#11130F]" />
