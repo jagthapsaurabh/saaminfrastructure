@@ -56,7 +56,7 @@ function Navbar() {
           <img
             src="/saam-logo.png"
             alt="SAAM Infrastructure"
-            className="h-11 w-auto object-contain sm:h-13 lg:h-14"
+            className="h-10 w-auto max-w-[130px] object-contain sm:h-12 sm:max-w-[160px] lg:h-14 lg:max-w-[200px]"
           />
         </Link>
 
