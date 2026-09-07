@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#F8F5ED"/>
+  <rect x="200" y="150" width="400" height="300" rx="20" fill="#E6E2D7" stroke="#C9A227" stroke-width="2"/>
+  <text x="400" y="280" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#11130F">SAAM Infrastructure</text>
+  <text x="400" y="320" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#687169">Image coming soon</text>
+  <circle cx="400" cy="370" r="15" fill="#C9A227" opacity="0.3"/>
+</svg>

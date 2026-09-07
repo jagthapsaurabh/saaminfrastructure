@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#1B2A4A"/>
+  <rect x="0" y="0" width="1920" height="1080" fill="url(#grad)" opacity="0.4"/>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#C9A227;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#11130F;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  <text x="960" y="500" text-anchor="middle" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" fill="#ffffff">SAAM Infrastructure</text>
+  <text x="960" y="560" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" fill="#C9A227">Building with Purpose — Nagpur, Maharashtra</text>
+</svg>
