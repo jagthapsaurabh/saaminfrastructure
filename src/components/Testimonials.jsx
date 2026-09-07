@@ -36,7 +36,6 @@ function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
   const maxIndex = testimonials.length - 1;
 
-  // Auto-advance
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
@@ -49,39 +48,34 @@ function Testimonials() {
   const goNext = () => setActiveIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
 
   return (
-    <section id="testimonials" className="relative overflow-hidden bg-[#1B2A4A] px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
-      {/* Background decorations */}
-      <div className="pointer-events-none absolute -left-32 top-0 h-72 w-72 rounded-full bg-[#C9A227]/[0.04] blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 bottom-0 h-72 w-72 rounded-full bg-[#C9A227]/[0.04] blur-3xl" />
-
+    <section id="testimonials" className="relative overflow-hidden bg-[#1B2A4A] px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
       <div className="relative mx-auto max-w-7xl">
-        {/* Header */}
+        {/* ── Centered Header ── */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="flex items-center justify-center gap-2 sm:gap-3">
-            <span className="h-px w-6 bg-[#C9A227] sm:w-10" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#C9A227] sm:text-xs">Client Testimonials</span>
-            <span className="h-px w-6 bg-[#C9A227] sm:w-10" />
+          <div className="flex items-center justify-center gap-3">
+            <span className="h-px w-8 bg-[#C9A227]" />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#C9A227]">Client Testimonials</span>
+            <span className="h-px w-8 bg-[#C9A227]" />
           </div>
-          <h2 className="mt-3 font-heading text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+          <h2 className="mt-5 font-heading text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl">
             Trusted by our clients.
           </h2>
-          <p className="mt-3 text-sm leading-6 text-white/60 sm:text-base sm:leading-7">
+          <p className="mt-4 text-[15px] leading-7 text-white/60">
             Hear from the clients who have trusted us with their construction and infrastructure projects.
           </p>
         </div>
 
-        {/* Testimonial Cards - Desktop */}
-        <div className="mt-10 hidden gap-5 sm:mt-12 lg:grid lg:grid-cols-2">
+        {/* ── Testimonial Cards — Perfect 2-col symmetry on desktop ── */}
+        <div className="mt-12 grid grid-cols-1 gap-5 lg:grid-cols-2">
           {testimonials.slice(0, 2).map((testimonial, idx) => (
             <TestimonialCard key={idx} testimonial={testimonial} />
           ))}
         </div>
 
-        {/* Testimonial Carousel - Mobile & Tablet */}
-        <div className="mt-10 sm:mt-12 lg:hidden">
+        {/* ── Mobile Carousel ── */}
+        <div className="mt-12 lg:hidden">
           <TestimonialCard testimonial={testimonials[activeIndex]} />
 
-          {/* Navigation */}
           <div className="mt-6 flex items-center justify-center gap-3">
             <button type="button" onClick={goPrev} className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 transition-all hover:border-[#C9A227] hover:bg-[#C9A227]/10 hover:text-[#C9A227]">
               <ChevronLeft size={18} />
@@ -106,22 +100,20 @@ function Testimonials() {
           </div>
         </div>
 
-        {/* Bottom statement */}
-        <div className="mt-10 border-t border-white/10 pt-8 sm:mt-12">
-          <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-            <p className="max-w-2xl text-sm leading-6 text-white/50 sm:text-base sm:leading-7">
-              Every project is an opportunity to build trust through quality, communication and dependable execution.
-            </p>
-            <div className="flex items-center gap-3">
-              <div className="flex -space-x-2">
-                {["RS", "AP", "SD", "VJ"].map((initials, i) => (
-                  <div key={i} className={`flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#1B2A4A] text-[9px] font-bold sm:h-9 sm:w-9 sm:text-[10px] ${i % 2 === 0 ? "bg-[#C9A227] text-[#1B2A4A]" : "bg-white/10 text-white"}`}>
-                    {initials}
-                  </div>
-                ))}
-              </div>
-              <span className="text-xs font-semibold text-white/50 sm:text-sm">Trusted Clients</span>
+        {/* ── Bottom Statement — Centered ── */}
+        <div className="mt-12 border-t border-white/10 pt-8 text-center">
+          <p className="mx-auto max-w-2xl text-[15px] leading-7 text-white/50">
+            Every project is an opportunity to build trust through quality, communication and dependable execution.
+          </p>
+          <div className="mt-5 flex items-center justify-center gap-3">
+            <div className="flex -space-x-2">
+              {["RS", "AP", "SD", "VJ"].map((initials, i) => (
+                <div key={i} className={`flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#1B2A4A] text-[9px] font-bold sm:h-9 sm:w-9 sm:text-[10px] ${i % 2 === 0 ? "bg-[#C9A227] text-[#1B2A4A]" : "bg-white/10 text-white"}`}>
+                  {initials}
+                </div>
+              ))}
             </div>
+            <span className="text-xs font-semibold text-white/50 sm:text-sm">Trusted Clients</span>
           </div>
         </div>
       </div>
@@ -132,22 +124,18 @@ function Testimonials() {
 function TestimonialCard({ testimonial }) {
   return (
     <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-sm transition-all duration-500 hover:border-[#C9A227]/30 hover:bg-white/[0.08] sm:p-8">
-      {/* Quote icon */}
       <Quote size={28} className="text-[#C9A227]/40" />
 
-      {/* Star rating */}
       <div className="mt-4 flex items-center gap-1">
         {[...Array(5)].map((_, i) => (
           <Star key={i} size={14} className="fill-[#C9A227] text-[#C9A227]" />
         ))}
       </div>
 
-      {/* Review */}
-      <p className="mt-4 text-sm leading-7 text-white/80 sm:text-base sm:leading-8">
+      <p className="mt-4 text-[15px] leading-7 text-white/80 sm:text-base sm:leading-8">
         "{testimonial.review}"
       </p>
 
-      {/* Client info */}
       <div className="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
         <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#C9A227] text-xs font-bold text-[#1B2A4A] transition-all duration-300 group-hover:bg-white group-hover:text-[#1B2A4A]">
           {testimonial.initials}

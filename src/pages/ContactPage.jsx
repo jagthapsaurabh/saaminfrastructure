@@ -66,19 +66,20 @@ function ContactPage() {
         <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-[#C9A227]/10 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-[#C9A227]/5 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
-          <div className="max-w-4xl">
-            <div className="flex items-center gap-3">
-              <span className="h-[3px] w-10 bg-[#C9A227] sm:w-14 lg:w-20" />
-              <p className="text-xs font-bold uppercase tracking-widest text-[#C9A227] sm:text-sm">Get in Touch</p>
+        <div className="relative mx-auto max-w-7xl px-5 py-24 text-center sm:px-6 sm:py-32 lg:px-8 lg:py-40">
+          <div className="mx-auto max-w-3xl">
+            <div className="flex items-center justify-center gap-3">
+              <span className="h-px w-8 bg-[#C9A227]" />
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#C9A227]">Get in Touch</p>
+              <span className="h-px w-8 bg-[#C9A227]" />
             </div>
             <h1 className="font-heading mt-6 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-              Let's talk about<span className="block text-[#C9A227]">your project.</span>
+              Let's talk about<span className="text-[#C9A227]"> your project.</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-white/70 sm:text-lg sm:leading-9">
+            <p className="mt-5 max-w-2xl mx-auto text-[15px] leading-7 text-white/60 sm:text-base sm:leading-8">
               Have a construction or infrastructure project in Nagpur or anywhere in Maharashtra? We are here to listen and help you plan the next steps.
             </p>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
               {contactInfo.slice(0, 2).map((item) => {
                 const Icon = item.icon;
                 const Tag = item.href ? "a" : "div";
@@ -280,21 +281,19 @@ function ContactPage() {
       {/* ============== CTA BANNER ============== */}
       <section className="px-5 pb-16 sm:px-6 sm:pb-20 lg:px-8 lg:pb-24">
         <div className="mx-auto max-w-7xl">
-          <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-[#1B2A4A] to-[#253D5E] p-8 sm:p-12 lg:p-16">
-            <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center lg:gap-12">
-              <div>
-                <div className="flex items-center gap-3">
-                  <Sparkles size={14} className="text-[#C9A227]" />
-                  <p className="text-xs font-bold uppercase tracking-widest text-[#C9A227] sm:text-sm">Ready to Start?</p>
-                </div>
-                <h2 className="font-heading mt-4 text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-4xl">
-                  Let's build something<span className="block text-[#C9A227]">great together.</span>
-                </h2>
-                <p className="mt-4 max-w-xl text-base leading-7 text-white/60">
-                  Whether you have a specific project in mind or need expert guidance, our team is ready to help.
-                </p>
-              </div>
-              <a href="tel:+919834399815" className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-[#C9A227] px-6 py-3 text-sm font-bold text-[#11130F] shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#E0C35B] hover:shadow-xl">
+          <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-[#1B2A4A] to-[#253D5E] p-8 text-center sm:p-12 lg:p-16">
+            <div className="flex items-center justify-center gap-3">
+              <Sparkles size={14} className="text-[#C9A227]" />
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#C9A227]">Ready to Start?</p>
+            </div>
+            <h2 className="font-heading mt-5 text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-4xl">
+              Let's build something<span className="text-[#C9A227]"> great together.</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-[15px] leading-7 text-white/60">
+              Whether you have a specific project in mind or need expert guidance, our team is ready to help.
+            </p>
+            <div className="mt-8">
+              <a href="tel:+919834399815" className="group inline-flex items-center gap-2 rounded-full bg-[#C9A227] px-7 py-3 text-sm font-bold text-[#11130F] shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#E0C35B] hover:shadow-xl">
                 <Phone size={16} /> Talk to Our Team
               </a>
             </div>
